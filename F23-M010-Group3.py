@@ -6,11 +6,10 @@ import pandas as pd
 #task 2
 
 
-
 #task 3
 
 
-#task 4
+#task 4 work in progress
 def readncreate(p1: str):
     #reading in file and then closing it
     txt = open("textfile.txt")
@@ -30,7 +29,7 @@ def readncreate(p1: str):
     bins.close()
    ''' 
 
-#task 5
+#task 5 work in progress
 
 def task5(p1: str):
     # reading in file and then closing it
