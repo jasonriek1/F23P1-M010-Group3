@@ -11,10 +11,41 @@ import pandas as pd
 
 
 #task 4
-
+def readncreate(p1: str):
+    #reading in file and then closing it
+    txt = open("textfile.txt")
+    readin = txt.read()
+    txt.close()
+    #use function 2 which idk what it looks like to go through all the text in the text fil
+    '''funcfromtask2(readin)
+    for value in range(len(outputfromfuncfromtask2)):
+        length += len(outputfromtask2[value])
+    
+    '''
+    #writing D.B
+    '''
+    wrt = (length.outputfromtask2)
+    bins = open("BinOutput.txt")
+    wrt.write("BinOutput.txt")
+    bins.close()
+   ''' 
 
 #task 5
 
+def task5(p1: str):
+    # reading in file and then closing it
+    bins = open("BinOutput.txt")
+    readin = bins.read()
+    bins.close()
+
+    # have to write in quotes bc don't actually have function from task 3.
+    '''task3pt1(readin)
+    task3pt2(outputfromtask3)
+
+    text = open("TextOutput.txt.")
+    outputfromtask3pt2.write("TextOutput.txt")
+    text.close()
+'''
 
 #task 6
 #Returns true if both text files are equal
