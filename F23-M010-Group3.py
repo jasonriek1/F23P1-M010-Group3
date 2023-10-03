@@ -8,43 +8,47 @@ import pandas as pd
 
 #task 3
 
+def func4(p1: str):
+    #opens the file and read in values and then closes it
+    o = open(p1)
+    r = o.read()
+    o.close()
+    #run a loop through r, everytime we run we use func2, add the first part to our values, then take away the first
+    #part of r, until r is empty.
+    values = ""
+    while r:
+        holder = func2(r)
+        values += holder[0]
+        r = holder[1]
+    # here we make our D.B out put for the output file by counting the bits and then adding a ., have to make it a string
+    # so we don't get an int there.
+    firstnum = str(len(values)) + "."
+    writing = firstnum + values
 
-#task 4 work in progress
-def readncreate(p1: str):
-    #reading in file and then closing it
-    txt = open("textfile.txt")
-    readin = txt.read()
-    txt.close()
-    #use function 2 which idk what it looks like to go through all the text in the text fil
-    '''funcfromtask2(readin)
-    for value in range(len(outputfromfuncfromtask2)):
-        length += len(outputfromtask2[value])
-    
-    '''
-    #writing D.B
-    '''
-    wrt = (length.outputfromtask2)
-    bins = open("BinOutput.txt")
-    wrt.write("BinOutput.txt")
-    bins.close()
-   ''' 
+    #here we just write out d.b output into BinOutput
+    opening = open("BinOutput.txt", "w")
+    opening.write(writing)
+    opening.close()
 
-#task 5 work in progress
+def func5(p1 = "BinOutput.txt"):
+    #opening and reading in the file
+    o = open(p1)
+    r = o.read()
+    o.close()
+    #slicing off the begginning part that tells us how many bits we use so it doesn't give us an error.
+    b = r.find(".")
+    r = r[b+1:]
+    #here we use the functions from 3 to get the chars back from out binary values.
+    a = ""
+    lofbins = func3pt1(r)
+    for n in range(len(lofbins)):
+        a += func3pt2(lofbins[n])
 
-def task5(p1: str):
-    # reading in file and then closing it
-    bins = open("BinOutput.txt")
-    readin = bins.read()
-    bins.close()
+    #here we just write our chars, the stuff in a, into textoutput
+    opening = open("TextOutput.txt", "w")
+    opening.write(a)
+    opening.close()
 
-    # have to write in quotes bc don't actually have function from task 3.
-    '''task3pt1(readin)
-    task3pt2(outputfromtask3)
-
-    text = open("TextOutput.txt.")
-    outputfromtask3pt2.write("TextOutput.txt")
-    text.close()
-'''
 
 #task 6
 #Returns true if both text files are equal
