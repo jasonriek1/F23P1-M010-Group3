@@ -7,7 +7,6 @@ import pandas as pd
 
 
 #task 3
-
 def func4(p1: str):
     #opens the file and read in values and then closes it
     o = open(p1)
@@ -18,8 +17,13 @@ def func4(p1: str):
     values = ""
     while r:
         holder = func2(r)
+        holder = str(holder)
+        holder = holder.split("*")
         values += holder[0]
-        r = holder[1]
+        if len(holder) >= 2:
+            r = holder[1]
+        else:
+            r = ""
     # here we make our D.B out put for the output file by counting the bits and then adding a ., have to make it a string
     # so we don't get an int there.
     firstnum = str(len(values)) + "."
@@ -50,6 +54,7 @@ def func5(p1 = "BinOutput.txt"):
     opening.close()
 
 
+
 #task 6
 #Returns true if both text files are equal
 #opens both files and puts them into a variable
@@ -62,3 +67,9 @@ def areFilesEqual(fileName1, fileName2): #files names must be inputed in double 
     s2 = f.read() #turns contents of file two into string
     f.close()
     return s2==s1 #true if equal false otherwise
+
+#this just runs our thing and make sure its right.
+def checker(p1):
+    func4(p1)
+    func5()
+    return areFilesEqual(p1, "TextOutput.txt")
