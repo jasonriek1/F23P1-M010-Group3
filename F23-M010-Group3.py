@@ -77,7 +77,6 @@ def func4(p1: str):
     values = ""
     while r:
         holder = string_to_binary(r)
-        holder = list(holder)
         values += holder[0]
         if len(holder) >= 2:
             r = holder[1]
