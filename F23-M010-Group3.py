@@ -3,12 +3,11 @@ import pandas as pd
 # task 1
 # reads Excel file and makes it into a list of bins and chars, also changes \\n to \n
 wb = pd.read_excel('F23P1-M010-Group3.xlsx', dtype=str)
+bins = list(wb["Bin"])  # set the column 2 list (Bin) = to the variable "bins"
+chars = list(wb["Char"])  # set the column 1 list (Char) = to the variable "chars"
 
-bins = list(wb['Bin'])
-chars = list(wb['Char'])
-
-if "\\n" in chars:
-    chars[chars.index("\\n")] = "\n"
+if "\\n" in chars:  # if you find \\n in the chars list...
+    chars[chars.index("\\n")] = "\n"  # set \\n = to \n
 
 # task 2
 '''
