@@ -22,7 +22,7 @@ def string_to_binary(p1: str):
             if chars[i] == working_string: # if we have those 3 characters in our character list
                 p1 = p1[3:] # cut out the first 3 chars
                 bin_value = bins[i] # find corresponding bin value
-                return [str(bin_value), str(p1)]
+                return bin_value, p1
 
     # checks for char of length 2, we have 4 in our excel file
     if len(p1) >= 2:
@@ -31,7 +31,7 @@ def string_to_binary(p1: str):
             if chars[i] == working_string: # if we have those 3 characters in our character list
                 p1 = p1[2:] # take out the first 2 characters we were working with
                 bin_value = bins[i] # find corresponding bin value
-                return [str(bin_value), str(p1)]
+                return bin_value, p1
     # checks for char of length 1, ie. single letters, numbers, or punctuation
     if len(p1) >= 1:
         working_string = p1[0:1]
@@ -41,7 +41,7 @@ def string_to_binary(p1: str):
                     p1 = p1[1:]
                 else: p1 = ''
                 bin_value = bins[i]
-                return [str(bin_value), str(p1)]
+                return bin_value, p1
 #task 3
 # this function cuts apart the input into either the short or long bits
 def first_binary(p1: str):
