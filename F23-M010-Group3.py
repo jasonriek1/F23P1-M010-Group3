@@ -9,14 +9,13 @@ chars = list(wb['Char'])
 
 if "\\n" in chars:
     chars[chars.index("\\n")] = "\n"
+
 # task 2
 '''
 This function takes a string and checks the length of the string 
 and then checks to to see if it  matches anything in the chars list
 Then, uses it's index to find the corresponding binary
 '''
-
-
 def string_to_binary(p1: str):
     # checks for char of length 3, we have 3 in our excel file
     if len(p1) >= 3:
@@ -48,7 +47,7 @@ def string_to_binary(p1: str):
                 return bin_value, p1
 
 
-# task 3
+# task 3a (from slides)
 # this function cuts apart the input into either the short or long bits
 def first_binary(p1: str):
     ourlist = []
@@ -67,6 +66,7 @@ def first_binary(p1: str):
     return ourlist
 
 
+# task 3b
 # this function takes the binary numer we cut out and uses its index from
 # our list to match it to the corresponding char
 def binary_to_string(p1: str):
