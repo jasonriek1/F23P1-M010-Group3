@@ -1,7 +1,7 @@
 import pandas as pd
 
 # task 1
-# reads excel file and makes it into list of bins and chars, also changes \\n to \n
+# reads Excel file and makes it into a list of bins and chars, also changes \\n to \n
 wb = pd.read_excel('F23P1-M010-Group3.xlsx', dtype=str)
 
 bins = list(wb['Bin'])
@@ -13,11 +13,11 @@ if "\\n" in chars:
 # task 2
 '''
 This function takes a string and checks the length of the string 
-and then checks to to see if it  matches anything in the chars list
-Then, uses it's index to find the corresponding binary
+and then checks to see if it  matches anything in the chars list
+Then, uses its index to find the corresponding binary
 '''
 def string_to_binary(p1: str):
-    # checks for char of length 3, we have 3 in our excel file
+    # checks for char of length 3, we have 3 in our Excel file
     if len(p1) >= 3:
         working_string = p1[0:3]  # takes first 3 characters
         for i in range(len(chars)):
@@ -26,12 +26,12 @@ def string_to_binary(p1: str):
                 bin_value = bins[i]  # find corresponding bin value
                 return bin_value, p1
 
-    # checks for char of length 2, we have 4 in our excel file
+    # checks for char of length 2, we have 4 in our Excel file
     if len(p1) >= 2:
-        working_string = p1[0:2]  # we only care about the first two characters
+        working_string = p1[0:2]  # We only care about the first two characters
         for i in range(len(chars)):
             if chars[i] == working_string:  # if we have those 3 characters in our character list
-                p1 = p1[2:]  # take out the first 2 characters we were working with
+                p1 = p1[2:]  # Take out the first 2 characters we were working with
                 bin_value = bins[i]  # find corresponding bin value
                 return bin_value, p1
     # checks for char of length 1, ie. single letters, numbers, or punctuation
@@ -48,7 +48,7 @@ def string_to_binary(p1: str):
 
 
 # task 3a (from slides)
-# this function cuts apart the input into either the short or long bits
+# This function cuts apart the input into either short or long bits
 def first_binary(p1: str):
     ourlist = []
     while p1:
@@ -67,7 +67,7 @@ def first_binary(p1: str):
 
 
 # task 3b
-# this function takes the binary numer we cut out and uses its index from
+# This function takes the binary number we cut out and uses its index from
 # our list to match it to the corresponding char
 def binary_to_string(p1: str):
     i = bins.index(p1)
@@ -75,13 +75,13 @@ def binary_to_string(p1: str):
 
 
 # task 4
-# this coverts the text file to binary and writes it to BinOutput
+# This converts the text file to binary and writes it to BinOutput
 def func4(p1: str):
-    # opens the file and read in values and then closes it
+    # opens the file and reads in values and then closes it
     o = open(p1)
     r = o.read()
     o.close()
-    # run a loop through r, everytime we run we use string_to_binary, add the first part to our values, then take away the first
+    # run a loop through r, every time we run we use string_to_binary, add the first part to our values, then take away the first
     # part of r, until r is empty.
     values = ""
     while r:
@@ -91,7 +91,7 @@ def func4(p1: str):
             r = holder[1]
         else:
             r = ""
-    # here we make our D.B out put for the output file by counting the bits and then adding a ., have to make it a string
+    # Here we make our D.B output for the output file by counting the bits and then adding a ., we have to make it a string
     # so we don't get an int there.
     firstnum = str(len(values)) + "."
     writing = firstnum + values
@@ -103,22 +103,22 @@ def func4(p1: str):
 
 
 # task 5
-# this takes our BinOutput and converts it back into text and writes it to TextOutput
+# This takes our BinOutput and converts it back into text and writes it to TextOutput
 def func5(p1="BinOutput.txt"):
-    # opening and reading in the file
+    # Opening and reading in the file
     o = open(p1)
     r = o.read()
     o.close()
-    # slicing off the begginning part that tells us how many bits we use so it doesn't give us an error.
+    # Slicing off the beginning part that tells us how many bits we use so it doesn't give us an error.
     b = r.find(".")
     r = r[b + 1:]
-    # here we use the functions from 3 to get the chars back from out binary values.
+    # Here we use the functions from 3 to get the chars back from our binary values.
     a = ""
     lofbins = first_binary(r)
     for n in range(len(lofbins)):
         a += binary_to_string(lofbins[n])
 
-    # here we just write our chars, the stuff in a, into textoutput
+    # here we just write our chars, the stuff in a, into text output
     opening = open("TextOutput.txt", "w")
     opening.write(a)
     opening.close()
@@ -128,7 +128,7 @@ def func5(p1="BinOutput.txt"):
 # Returns true if both text files are equal
 # opens both files and puts them into a variable
 # evaluates both to see if they are equal in the return statement
-def areFilesEqual(fileName1, fileName2):  # files names must be inputed in double qoutes. ex. areFilesEqual("placeholder1.txt", "placeholder2.txt")
+def areFilesEqual(fileName1, fileName2):  # files names must be inputed in double-quotes. ex. areFilesEqual("placeholder1.txt", "placeholder2.txt")
     f = open(fileName1)  # opens file one
     s1 = f.read()  # turns contents of file one into string
     f.close()
@@ -138,7 +138,7 @@ def areFilesEqual(fileName1, fileName2):  # files names must be inputed in doubl
     return s2 == s1  # true if equal false otherwise
 
 
-# this just runs our thing and make sure its right.
+# This just runs our thing and makes sure it's right.
 def checker(p1):
     func4(p1)
     func5()
