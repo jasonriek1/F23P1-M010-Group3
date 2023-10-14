@@ -127,7 +127,7 @@ def func5(p1="BinOutput.txt"):
 # Returns true if both text files are equal
 # opens both files and puts them into a variable
 # evaluates both to see if they are equal in the return statement
-def areFilesEqual(fileName1, fileName2):  # files names must be inputed in double-quotes. ex. areFilesEqual("placeholder1.txt", "placeholder2.txt")
+def areFilesEqual(fileName1, fileName2="TextOutput.txt"):  # files names must be inputed in double-quotes. ex. areFilesEqual("placeholder1.txt", "placeholder2.txt")
     f = open(fileName1)  # opens file one
     s1 = f.read()  # turns contents of file one into string
     f.close()
